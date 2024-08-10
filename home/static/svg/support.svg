@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="200.5" height="137.007" viewBox="0 0 200.5 137.007">
+  <path d="M36.25,63.007h0c8.837,0,16,7.163,16,16v40c0,8.837-7.163,16-16,16h0c-8.837,0-16-7.163-16-16v-40c0-8.837,7.163-16,16-16Z" style="fill: none; stroke: #e41e26; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <rect x="148.25" y="63.007" width="32" height="72" rx="15.863" ry="15.863" style="fill: none; stroke: #e41e26; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <path d="M168.25,63.007c-.902-6.033-4.575-25.403-21.534-41.466C127.772,3.599,105.357,2.196,99.75,2.007h0c-5.24.119-28.078,1.217-46.966,19.534-16.692,16.188-19.82,35.664-20.534,41.466C36.174,28.716,65.162,2.503,99.25,2.007c34.819-.507,64.983,25.965,69,61Z" style="fill: none; stroke: #e41e26; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <path d="M2,98.757c0,10.079,8.171,18.25,18.25,18.25v-36.5c-10.079,0-18.25,8.171-18.25,18.25Z" style="fill: none; stroke: #e41e26; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <path d="M180.25,80.507v36.5c10.079,0,18.25-8.171,18.25-18.25s-8.171-18.25-18.25-18.25Z" style="fill: none; stroke: #e41e26; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <polyline points="68.25 19.007 98.25 6.007 134.909 19.007" style="fill: none; stroke: #e41e26; stroke-miterlimit: 10; stroke-width: 7px;"/>
+</svg>

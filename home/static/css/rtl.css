@@ -1,0 +1,12 @@
+font-face {
+    font-family: myFont;
+    src: url("/static/font/Vazir.woff");
+
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    font-family: 'myFont', sans-serif;
+}

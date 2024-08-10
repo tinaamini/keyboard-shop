@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="238.489" height="178.58" viewBox="0 0 238.489 178.58">
+  <polyline points="0 3.5 28.673 3.5 68.814 146.226 196.885 146.226" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <g>
+    <path d="M101.806,49.921l19.6,70.167h31.858l-19.659-70.378c-10.984.073-21.736.144-31.799.211Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+    <path d="M70.691,50.128c-.399.003-.781.005-1.173.008l19.54,69.953h32.348l-19.6-70.167c-11.509.076-22.115.147-31.115.207Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+    <path d="M42.015,50.318c6.888,23.257,13.777,46.513,20.665,69.77h26.377l-19.54-69.953c-14.831.099-25.097.167-27.502.183Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+    <path d="M188.922,49.342c5.823,21.183,11.645,42.367,17.468,63.55.642,2.399,1.284,4.797,1.926,7.196,1.503.106,3.006.211,4.508.317,6.993-23.787,13.986-47.574,20.978-71.361-14.96.099-29.921.199-44.881.298Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+    <path d="M163.187,49.513l19.714,70.575h25.416c.069-.192-19.394-70.746-19.394-70.746-8.304.055-16.96.113-25.735.171Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+    <path d="M133.605,49.71l19.659,70.378h29.637l-19.714-70.575c-9.822.065-19.792.132-29.582.197Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  </g>
+  <circle cx="190.195" cy="159.58" r="15.292" style="fill: #000; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <ellipse cx="80.169" cy="159.58" rx="15.292" ry="15.5" style="fill: #000; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+</svg>

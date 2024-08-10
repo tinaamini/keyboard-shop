@@ -1,0 +1,88 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'css/products/product_list.css' %}" rel="stylesheet">
+    <link href="{% static 'css/rtl.css' %}" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+{% include 'templates/home/navbar.html' %}
+<div class="container_productList">
+    <div class="content_productlist">
+        <div class="content_header">
+            <div class="bigSale">
+                <div style="    padding-right: 50%;display: flex;flex-direction: column;gap: 105px">
+                    <div style="font-size: 2.2rem">!BIG SALE</div>
+
+                    <div style="background: #ff7817;color: white;width: 83%;text-align: center;height: 32px;border-radius: 25px; padding-top: 5%; font-size: 1.5rem;cursor: pointer">
+                        <a>مشاهده</a></div>
+
+                </div>
+
+                {% for product in products %}
+                    {% if product.category == "headphone" %}
+                        <img class="imgBigSale" src="{% static 'img/bottonHeadphone.png ' %}">
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div style="width: 42%;">
+                <div style="    margin-top: 5%;
+    height: 20%;
+    border-radius: 25px;
+    background: linear-gradient(321deg, rgba(240, 247, 255, 1) 26%, rgba(245, 233, 255, 1) 47%, rgba(255, 242, 213, 1) 70%);
+    text-align: center;padding-top: 14%">
+                    همین حالا خرید کنید و <span style="color: #ff7817;">۲۰٪</span> تخفیف ویژه بگیرید!
+                </div>
+                <div style="    margin-top: 5%;
+    height: 20%;
+    border-radius: 25px;
+    background: linear-gradient(333deg, rgba(240,247,255,1) 76%, rgba(255,242,213,1) 93%);
+    text-align: center;
+    padding-top: 14%">***
+                </div>
+            </div>
+
+        </div>
+        <div class="grid">
+            {% for product in products %}
+                <a class="item" href="{% url 'productBlog:productDetail' product.id %}">
+                    <div style="text-align: center">
+                        {{ product.name }}
+                    </div>
+                    <img style="width: 100%;" src="{{ product.img.url }}" alt="{{ product.name }}">
+
+                    <div class="overlay"></div>
+                </a>
+
+
+            {% endfor %}
+        </div>
+
+    </div>
+    <div class="content_categories">
+        <div style="font-size: 2rem;">category</div>
+        {% for category in categories %}
+            {% if forloop.first or category != previous_category %}
+                <div class="category-item">
+                    <a class="category" href="{% url 'productBlog:product_list' category=category %}">
+                        <div class="category-name">{{ category }}</div>
+                    </a>
+                </div>
+            {% endif %}
+            {% with category as previous_category %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+</div>
+<script src="{% static 'jquery/jquery.min.js' %}"></script>
+<script src="{% static 'js/product_list.js' %}"></script>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+{% load static %}
+<div class="container_navbar">
+    <div class="content_home">
+        <img style="width:69px" src="{% static 'svg/logo.svg' %}">
+        <div><a>سبد خرید</a></div>
+        <div><a>درباره ما</a></div>
+        <div><a>وبلاگ</a></div>
+
+    </div>
+    <div style="padding-top: 30px;    width: 17%;">
+        <form method="get" action="{% url 'productBlog:search' %}">
+            <input class="search" id="searchInput" type="text" name="q" placeholder="جستجو..."
+                   onkeydown="if(event.key === 'Enter' && this.value.trim() !== '') { this.form.submit(); return false; }">
+            <div style="width: 12%;height: 85%;cursor: pointer;margin-top: -12%;margin-right: 5%">
+                <img style="width: 100%;" src="{% static 'svg/search.svg' %}">
+            </div>
+        </form>
+    </div>
+    <div class="content_logo">
+        <div class="login_logOut">
+            <div>login</div>
+            <div>log out</div>
+        </div>
+
+        <div style="width: 12%; height: 85%;cursor: pointer;">
+            <img style="width: 100%;" src="{% static 'svg/buy.svg' %}"></div>
+    </div>
+</div>

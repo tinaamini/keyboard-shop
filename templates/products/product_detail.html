@@ -1,0 +1,53 @@
+{% load static %}
+{% load custom_filters %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ product.name }}</title>
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'css/rtl.css' %}" rel="stylesheet">
+    <link href="{% static 'css/products/productDetail.css' %}" rel="stylesheet">
+</head>
+<body>
+{% include 'templates/home/navbar.html' %}
+<div class="container_detail">
+    <div class="content_img">
+
+        <img src="{{ product.img.url }}">
+        <div>
+            {% for image in images %}
+                <img style="width: 18%;" src=" {{ image.image.url|safe }}  ">
+            {% endfor %}
+        </div>
+    </div>
+    <div class="content_detail">
+        <div style="width: 100%;text-align: center;font-size: 1.5rem;color: yellow;">{{ product.name }}</div>
+        <div style="text-align: end;font-size: 34px;padding-top: 30px;width: 100%;">{{ price |iran_currency }}<img
+                style="width: 4.8%;" src="{% static 'svg/تومان.svg' %}"></div>
+
+        <div class="discription">
+            <div id="show-description">توضیحات</div>
+            <div id="show-details">جزيیات</div>
+            <div id="show-reviews">نظرات</div>
+        </div>
+        <div id="content_discription" class="content_discription visible">{{ product.description|truncatechars:200 }}</div>
+        <div id="content_details " class="content_discription hidden" >
+            {% for value in values %}
+
+                <li>{{ value.attribute.title }}: {{ value.value }}</li>
+
+            {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+<script src="{% static 'jquery/jquery.min.js' %}"></script>
+
+<script src="{% static 'js/product_detail.js' %}"></script>
+</body>
+</html>

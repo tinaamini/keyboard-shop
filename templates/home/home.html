@@ -1,0 +1,69 @@
+{% extends 'templates/home/base.html' %}
+{% load static %}
+{% block header %}
+    <div class="container_header">
+
+        <a class="content_headphone" href="{% url 'productBlog:product_list' 'headphone' %}">
+            <img class="img_header" src="{% static 'img/HEADPHONE.png' %}">
+            <div class="button_headphone">خرید از هدفون ها</div>
+        </a>
+        <a class="content_speaker">
+            <img class="img_header" src="{% static "img/SPEACKER.png" %}">
+            <div class="button_speaker">خرید از اسپکیر ها</div>
+        </a>
+        <a class="content_keyboard">
+            <img class="img_header" src="{% static "img/KEYBOARD-01.png" %}">
+            <div class="button_keyboard">خرید از کیبرد ها</div>
+        </a>
+        <a class="content_mouse">
+            <img class="img_header" src="{% static "img/mouse-01.png" %}">
+            <div class="button_mouse">خرید از موس ها</div>
+        </a>
+        <a class="content_handle">
+            <img class="img_header" src="{% static "img/handle.png" %}">
+            <div class="button_handle">خرید از دسته ها بازی</div>
+        </a>
+        <a class="content_accessories">
+            <img class="img_header" src="{% static "img/accessories-01.png" %}">
+            <div class="button_accessories">خرید از اکسسوری های کامپیوتر</div>
+        </a>
+        <a class="content_handsfree">
+            <img class="img_header" style="width:95%" src="{% static "img/HANDSFREE-01.png" %}">
+            <div class="button_handsfree">خرید از هندزفری ها</div>
+        </a>
+
+    </div>
+    <div class="security">
+        <a>
+            <img src="{% static 'svg/wallet.svg' %}">
+            <div>
+                <span>پرداخت امن</span>
+
+            </div>
+        </a>
+        <a>
+            <img src={% static 'svg/support.svg' %}>
+            <div>
+                 <span>پیشتیبانی 24 ساعته </span>
+
+            </div>
+
+        </a>
+        <a>
+            <img src="{% static 'svg/guarantee.svg' %}">
+            <div>
+                 <span>گارانتی کالا</span>
+
+            </div>
+
+        </a>
+        <a>
+            <img src="{% static 'svg/shipping.svg' %}">
+            <div>
+                 <span>ارسال سریع و بی واسط</span>
+
+            </div>
+
+        </a>
+    </div>
+{% endblock %}

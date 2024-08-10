@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if rsults %}
+    <ul>
+        {% for product in results %}
+            <li>{{ product.name }} - {{ product.description }}</li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    not result
+{% endif %}
+</body>
+</html>
