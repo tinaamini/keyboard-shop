@@ -38,11 +38,15 @@ def productDetail(request, id):
     values = Value.objects.filter(product=product)
     images = ProductImage.objects.filter(product=product)
     price_attribute = Attributes.objects.filter(title='قیمت').first()
-    price = values.filter(attribute=price_attribute).first().value if price_attribute else 'N/A'
+
+    price_value = values.filter(attribute=price_attribute).first() if price_attribute else None
+    price = price_value.value if price_value else 'N/A'
+
     context = {
         'product': product,
         'values': values,
         'images': images,
-        'price':price
+        'price': price
     }
+
     return render(request, 'products/product_detail.html', context)

@@ -35,12 +35,15 @@
             <div id="show-reviews">نظرات</div>
         </div>
         <div id="content_discription" class="content_discription visible">{{ product.description|truncatechars:200 }}</div>
-        <div id="content_details " class="content_discription hidden" >
+        <div id="content_details " class="content_details hidden">
             {% for value in values %}
 
                 <li>{{ value.attribute.title }}: {{ value.value }}</li>
 
             {% endfor %}
+        </div>
+        <div id="content_reviews" class="content_reviews hidden ">
+
         </div>
 
 

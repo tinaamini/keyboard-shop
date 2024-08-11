@@ -54,6 +54,9 @@
     cursor: pointer;
 }
 
+#show-description{
+    border-bottom: 2px solid yellow ;
+}
 .discription div {
     padding-bottom: 13px;
     border-bottom: 1px solid #3b3b3bee;
