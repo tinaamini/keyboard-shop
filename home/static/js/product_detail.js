@@ -41,3 +41,23 @@ $("#show-reviews").click(function () {
 })
 
 
+
+$(document).ready(function(){
+    $(".toggle-more").click(function(event){
+        event.preventDefault();
+        var $shortContent = $(this).siblings(".short-content");
+        var $moreContent = $(this).siblings(".more-content");
+
+        if ($moreContent.is(":visible")) {
+            $(this).text("مطالعه بیشتر");
+            $shortContent.show();
+            $moreContent.slideUp();
+        } else {
+            $(this).text("بستن");
+            $shortContent.hide();
+            $moreContent.slideDown();
+        }
+    });
+});
+
+

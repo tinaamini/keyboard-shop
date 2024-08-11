@@ -13,7 +13,8 @@ class BaseProducts(models.Model):
     name = models.CharField(max_length=50, verbose_name="نام")
     category = models.CharField(max_length=50, verbose_name="دسته‌بندی")
     img = models.ImageField(upload_to="media/", null=True)
-    description = models.TextField(verbose_name="توضیحات", null=True, blank=True)
+    description = models.TextField(max_length=300,verbose_name="توضیحات", null=True, blank=True)
+    stock = models.PositiveIntegerField(default=0, verbose_name="موجودی")
     deleted = models.BooleanField()
     is_activated = models.BooleanField()
 
