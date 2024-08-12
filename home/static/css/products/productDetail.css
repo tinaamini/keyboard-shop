@@ -86,6 +86,7 @@
 
 .container_buy {
     width: 100%;
+
 }
 
 .title_buy {
@@ -102,12 +103,24 @@
     padding-top: 14px;
 }
 
+
 .color-swatch.hidden {
     display: none;
 }
 
-.color-swatch {
+#color-swatch {
     width: 30px;
     height: 30px;
     border-radius: 25px;
+}
+
+.container-color {
+    display: flex;
+    flex-direction: row-reverse
+}
+
+.content-color {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
 }

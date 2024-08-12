@@ -57,14 +57,22 @@
                 <div>جمع خرید</div>
             </div>
             <div class="content_buy">
-                <div class="colors">
-                    {% for color in colors %}
-                        <div class="color-swatch" style="background-color: {{ color }};" title="{{ color }}"></div>
-                    {% endfor %}
-                </div>
-                <div>
+                <div class="container-color">
+                    <div class="content-color">
+                        <div class="color-first" id="color-swatch" style="background-color: {{ colors|first }};"
+                             title="{{ colors|first }}"></div>
 
+                        {% for color in colors %}
+                            <div class="color-swatch hidden" id="color-swatch" style="background-color: {{ color }};"
+                                 title="{{ color }}"></div>
+                        {% endfor %}
+                    </div>
+
+                    <img src="{% static 'svg/alt-arow-down.svg ' %}" class="more-colors-button" id="show-more-colors">
+                    <img src="{% static 'svg/aly-arrow-up.svg' %}" class="hide-colors-button hidden" id="hide-more-colors">
                 </div>
+
+                <div></div>
                 <div></div>
             </div>
         </div>

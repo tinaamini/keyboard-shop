@@ -41,9 +41,8 @@ $("#show-reviews").click(function () {
 })
 
 
-
-$(document).ready(function(){
-    $(".toggle-more").click(function(event){
+$(document).ready(function () {
+    $(".toggle-more").click(function (event) {
         event.preventDefault();
         var $shortContent = $(this).siblings(".short-content");
         var $moreContent = $(this).siblings(".more-content");
@@ -59,5 +58,24 @@ $(document).ready(function(){
         }
     });
 });
+
+
+$('#show-more-colors').click(function () {
+    // نمایش تمام رنگ‌های پنهان و پنهان کردن رنگ اول
+    $('.color-swatch.hidden').removeClass('hidden');
+    $('.color-first').addClass('hidden');
+    $('.more-colors-button').addClass('hidden');
+    $('#hide-more-colors').removeClass('hidden')
+
+});
+
+$('#hide-more-colors').click(function () {
+    // نمایش تمام رنگ‌های پنهان و پنهان کردن رنگ اول
+    $('.color-first.hidden').removeClass('hidden');
+    $('.color-swatch').addClass('hidden');
+    $('.hide-colors-butto').addClass('hidden');
+    $('#show-more-colors').removeClass('hidden')
+});
+
 
 
