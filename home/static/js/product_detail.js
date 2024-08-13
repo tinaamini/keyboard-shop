@@ -39,7 +39,7 @@ $("#show-reviews").click(function () {
         $('#show-details').css("border-bottom", "1px solid #3b3b3bee");
     }
 })
-
+//-----------------------------
 
 $(document).ready(function () {
     $(".toggle-more").click(function (event) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
         }
     });
 });
-
+//---------------color
 
 $('#show-more-colors').click(function () {
     // نمایش تمام رنگ‌های پنهان و پنهان کردن رنگ اول
@@ -73,9 +73,37 @@ $('#hide-more-colors').click(function () {
     // نمایش تمام رنگ‌های پنهان و پنهان کردن رنگ اول
     $('.color-first.hidden').removeClass('hidden');
     $('.color-swatch').addClass('hidden');
-    $('.hide-colors-butto').addClass('hidden');
+    $('.hide-colors-button').addClass('hidden');
     $('#show-more-colors').removeClass('hidden')
 });
+//---------------number
+
+$('.content-positive').click(function () {
+    var pricePerItem = parseFloat($('.container-price').data('price'));
+
+    var currentValue = parseInt($('.content-number').text());
+    var newValue = currentValue + 1;
+    $('.content-number').text(newValue);
+
+    var totalPrice = newValue * pricePerItem;
+
+    $('.container-price').text(totalPrice.toLocaleString('fa-IR') + ' تومان')
+
+
+})
+
+$('.content-negative').click(function () {
+    var pricePerItem = parseFloat($('.container-price').data('price'));
+    var currentValue = parseInt($('.content-number').text());
+    if (currentValue > 0) {
+        var newValue = currentValue - 1;
+        $('.content-number').text(newValue);
+    }
+    var totalPrice = newValue * pricePerItem;
+    $('.container-price').text(totalPrice.toLocaleString('fa-IR') + ' تومان')
+
+
+})
 
 
 

@@ -68,12 +68,16 @@
                         {% endfor %}
                     </div>
 
-                    <img src="{% static 'svg/alt-arow-down.svg ' %}" class="more-colors-button" id="show-more-colors">
-                    <img src="{% static 'svg/aly-arrow-up.svg' %}" class="hide-colors-button hidden" id="hide-more-colors">
+                    <img style="width: 38% " src="{% static 'svg/alt-arow-down.svg ' %}" class="more-colors-button" id="show-more-colors">
+                    <img style="width: 54% ;height: 34px" src="{% static 'svg/aly-arrow-up.svg' %}" class="hide-colors-button hidden" id="hide-more-colors">
                 </div>
 
-                <div></div>
-                <div></div>
+                <div class="container-number">
+                    <div class="content-negative">-</div>
+                    <div class="content-number">1</div>
+                    <div class="content-positive">+</div>
+                </div>
+                <div class="container-price" data-price="{{ price }}">{{ price|iran_currency }} </div>
             </div>
         </div>
 
