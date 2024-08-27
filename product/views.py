@@ -49,10 +49,10 @@ def productDetail(request, id):
     color_attribute = Attributes.objects.filter(title='رنگ').first()
     if color_attribute:
         raw_colors = values.filter(attribute=color_attribute).values_list('value', flat=True).distinct()
-        colors = [COLOR_DICT.get(color, '#CCCCCC') for color in raw_colors]  # استفاده از رنگ پیش‌فرض اگر رنگی در دیکشنری نباشد
+        colors = [COLOR_DICT.get(color, '#CCCCCC') for color in
+                  raw_colors]  # استفاده از رنگ پیش‌فرض اگر رنگی در دیکشنری نباشد
     else:
         colors = []
-
 
     context = {
         'product': product,
@@ -66,3 +66,8 @@ def productDetail(request, id):
     return render(request, 'products/product_detail.html', context)
 
 
+def latest_products(request):
+    # Gereftan 30 mahsule jadid
+    products = BaseProducts.objects.order_by('-date_created')[:30]
+
+    return render(request, 'home/new-products.html', {'all_products': products})

@@ -15,6 +15,7 @@ class BaseProducts(models.Model):
     img = models.ImageField(upload_to="media/", null=True)
     description = models.TextField(max_length=300,verbose_name="توضیحات", null=True, blank=True)
     stock = models.PositiveIntegerField(default=0, verbose_name="موجودی")
+    date_created = models.DateTimeField(auto_now_add=True,verbose_name="تاریخ ثبت محصول", null=True, blank=True)
     deleted = models.BooleanField()
     is_activated = models.BooleanField()
 

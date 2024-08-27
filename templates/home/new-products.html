@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <ul id="product-list">
+            {% for product in all_products %}
+                <li>{{ product.name }}</li>
+            {% endfor %}
+        </ul>
+</body>
+</html>

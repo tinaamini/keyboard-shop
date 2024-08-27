@@ -44,7 +44,7 @@
         <a>
             <img src={% static 'svg/support.svg' %}>
             <div>
-                 <span>پیشتیبانی 24 ساعته </span>
+                <span>پیشتیبانی 24 ساعته </span>
 
             </div>
 
@@ -52,7 +52,7 @@
         <a>
             <img src="{% static 'svg/guarantee.svg' %}">
             <div>
-                 <span>گارانتی کالا</span>
+                <span>گارانتی کالا</span>
 
             </div>
 
@@ -60,10 +60,26 @@
         <a>
             <img src="{% static 'svg/shipping.svg' %}">
             <div>
-                 <span>ارسال سریع و بی واسط</span>
+                <span>ارسال سریع و بی واسط</span>
 
             </div>
 
         </a>
+    </div>
+
+    <div>
+        <div>
+            <div>جدید ترین محصولات</div>
+            <a href="{% url 'productBlog:new_products' %}">مشاهده بیشتر</a>
+        </div>
+        <div id="latest-products-footer">
+
+            <ul id="product-list">
+                {% for product in latest_products %}
+                   {{ product.name }}
+
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock %}
