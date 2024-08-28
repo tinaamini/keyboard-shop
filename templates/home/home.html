@@ -67,16 +67,24 @@
         </a>
     </div>
 
-    <div>
-        <div>
+    <div id="new_products">
+        <div class="new_products_titre">
             <div>جدید ترین محصولات</div>
-            <a href="{% url 'productBlog:new_products' %}">مشاهده بیشتر</a>
+            <a class="new_product_more" href="{% url 'productBlog:new_products' %}"> مشاهده بیشتر</a>
         </div>
         <div id="latest-products-footer">
 
             <ul id="product-list">
                 {% for product in latest_products %}
-                   {{ product.name }}
+                    <div  class="product_new">
+                        <div style="width: 130px ;height:130px ">
+                            <img style="width: 100% ;height: 100%" src="{{ product.img.url }}">
+
+                        </div>
+                        <a class="product_new_name" href="{% url 'productBlog:productDetail' product.id %}">
+                            {{ product.name }}
+                        </a>
+                    </div>
 
                 {% endfor %}
             </ul>
