@@ -36,7 +36,8 @@ html, body {
     background-color: #eee;
     border-radius: 26px;
     height: 31px;
-    padding-right: 21%;
+        padding-right: 23%;
+    font-size: 1rem;
 }
 
 .search:focus {

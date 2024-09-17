@@ -1,0 +1,11 @@
+.container_footer {
+    background: #d0d6d5;
+    margin-top: 7%;
+    padding: 4%;
+        display: flex;
+    justify-content: flex-start;
+    gap: 14%;
+}
+.content_footer:hover{
+    
+}

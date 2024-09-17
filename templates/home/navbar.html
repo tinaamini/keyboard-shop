@@ -11,7 +11,7 @@
         <form method="get" action="{% url 'productBlog:search' %}">
             <input class="search" id="searchInput" type="text" name="q" placeholder="جستجو..."
                    onkeydown="if(event.key === 'Enter' && this.value.trim() !== '') { this.form.submit(); return false; }">
-            <div style="width: 12%;height: 85%;cursor: pointer;margin-top: -12%;margin-right: 5%">
+            <div style="width: 13%;height: 85%;cursor: pointer;margin-top: -14%;margin-right: 5%;">
                 <img style="width: 100%;padding-top: 7%" src="{% static 'svg/search.svg' %}">
             </div>
         </form>
@@ -23,6 +23,6 @@
         </div>
 
         <div style="width: 12%; height: 85%;cursor: pointer;">
-            <img style="width: 100%;" src="{% static 'svg/buy.svg' %}"></div>
+            <img style="width: 100%;padding-top: 44%;" src="{% static 'svg/buy.svg' %}"></div>
     </div>
 </div>

@@ -149,3 +149,16 @@ html, body {
 .security a div span {
     color: #919191;
 }
+
+@media (max-width: 1091px) {
+.button_accessories,.button_headphone,.button_headphone,.button_keyboard,.button_mouse{
+
+    font-size: 0.9rem;
+}
+.button_handle ,.button_handsfree{
+    font-size: 0.8rem;}
+
+
+
+
+}
