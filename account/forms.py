@@ -29,10 +29,17 @@ class UserCreationForm(forms.ModelForm):
 
 
 class UserChangeForm(forms.ModelForm):
-    password = ReadOnlyPasswordHashField(
-        help_text='شما میتوانید تغییر بدهید پسوردتونو با این <a/>فرم< href=\"../password/\" a >')
+    password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = User
 
         fields = ('email','phone_number', 'full_name', 'password', 'last_login')
+
+
+
+class UserRegistrationForm(forms.Form):
+    email=forms.EmailField()
+    full_name=forms.CharField(label='full name')
+    phone=forms.CharField(max_length=11)
+    password=forms.CharField(widget=forms.PasswordInput)
