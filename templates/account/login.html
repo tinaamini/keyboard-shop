@@ -1,11 +1,9 @@
 {% extends 'templates/account/base.html' %}
 {% block content %}
-       {% include 'templates/inc/messages.html' %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="send">
-
+        <input type="submit" value="ورود">
 
     </form>
 

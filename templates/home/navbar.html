@@ -18,7 +18,16 @@
     </div>
     <div class="content_logo">
         <div class="login_logOut">
-            <div>خروج</div>
+            <div class="navbar_nav">
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'accounts:logout' %}"> خروج</a>
+                {% else %}
+
+                    <a href="{% url 'accounts:login' %}"> ورود</a>
+                {% endif %}
+
+
+            </div>
 
         </div>
 
