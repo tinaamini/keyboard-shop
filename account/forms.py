@@ -1,5 +1,5 @@
 from django import forms
-from .models import User
+from .models import User,OtpCode
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
@@ -43,7 +43,19 @@ class UserRegistrationForm(forms.Form):
     phone = forms.CharField(max_length=11)
     password = forms.CharField(widget=forms.PasswordInput)
 
-
+    def clean_email(self):
+        email=self.cleaned_data['email']
+        user=User.objects.filter(email=email).exists()
+        if user:
+            raise ValidationError('این ایمیل قبلا اسثفاده شده است')
+        return email
+    def clean_phone(self):
+        phone=self.cleaned_data['phone']
+        user=User.objects.filter(phone_number=phone).exists()
+        if user:
+            raise ValidationError('این شماره قبلا اسثفاده شده است')
+        OtpCode.objects.filter(phone_number=phone).delete()
+        return phone
 class VerifyCodeForm(forms.Form):
     code = forms.IntegerField()
 
