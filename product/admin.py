@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BaseProducts,Attributes,Value,ProductImage
+from .models import BaseProducts,Attributes,Value,ProductImage,Category
 from django.utils.html import format_html
 # Register your models here.
 class ValueAdmin(admin.ModelAdmin):
@@ -13,6 +13,9 @@ class ImageAdmin(admin.ModelAdmin):
 
     image_tag.short_description = 'ProductImage'
     list_display = ['product','image_tag', ]
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
 
 
 
@@ -21,3 +24,4 @@ admin.site.register(BaseProducts)
 admin.site.register(Attributes)
 admin.site.register(ProductImage,ImageAdmin)
 admin.site.register(Value,ValueAdmin)
+admin.site.register(Category,CategoryAdmin)

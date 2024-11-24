@@ -1,18 +1,26 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import BaseProducts
+from .models import BaseProducts, Category
 from django.db.models import CharField, Q
 from .models import Value, ProductImage, Attributes
 from .colors import COLOR_DICT
+from django.views import View
 
 
 # Create your views here
 
 
-def product_list(request, category):
-    products = BaseProducts.objects.filter(category=category)
-    categories = BaseProducts.objects.all()
-    return render(request, 'products/product_list.html', {'products': products, 'categories': categories})
+def category_products(request, category_name):
+    products = BaseProducts.objects.filter(category__name=category_name)
+    products_list = BaseProducts.objects.all()
+    return render(request, 'products/product_list.html', {'products': products,'products_list':products_list})
+
+
+# def product_list(request):
+#
+#     category = Category.objects.all()
+#     products = BaseProducts.objects.all()
+#     return render(request, 'products/product_list.html', {'products': products, 'category': category})
 
 
 def search(request):

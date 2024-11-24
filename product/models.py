@@ -9,13 +9,29 @@ def add_space_between_farsi_english(text):
     return pattern.sub(r'\1\3&nbsp;\2\4', text)
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'دسته بندی'
+        verbose_name_plural = 'دسته بندی ها'
+
+    def __str__(self):
+        return self.name
+
+    # def get_absolut_url(self):
+    #     return reversed('productBlog:product_list', args=self.slug)
+
+
 class BaseProducts(models.Model):
     name = models.CharField(max_length=50, verbose_name="نام")
-    category = models.CharField(max_length=50, verbose_name="دسته‌بندی")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', null=True, blank=True)
     img = models.ImageField(upload_to="media/", null=True)
-    description = models.TextField(max_length=300,verbose_name="توضیحات", null=True, blank=True)
+    description = models.TextField(max_length=300, verbose_name="توضیحات", null=True, blank=True)
     stock = models.PositiveIntegerField(default=0, verbose_name="موجودی")
-    date_created = models.DateTimeField(auto_now_add=True,verbose_name="تاریخ ثبت محصول", null=True, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ثبت محصول", null=True, blank=True)
     deleted = models.BooleanField()
     is_activated = models.BooleanField()
 

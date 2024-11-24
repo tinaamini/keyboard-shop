@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from product.models import BaseProducts
+from product.models import BaseProducts,Category
 
 from django.core.paginator import Paginator
 
@@ -10,4 +10,4 @@ from django.core.paginator import Paginator
 def home(request):
     products = BaseProducts.objects.order_by('-date_created')[:5]
 
-    return render(request, 'templates/home/home.html', {'latest_products': products})
+    return render(request, 'templates/home/home.html', {'latest_products': products })

@@ -26,11 +26,11 @@
 
                 </div>
 
-                {% for product in products %}
-                    {% if product.category == "headphone" %}
-                        <img class="imgBigSale" src="{% static 'img/bottonHeadphone.png ' %}">
-                    {% endif %}
-                {% endfor %}
+             {% for product in products %}
+                 {% if product.category.name == "هدفون" %}
+                     <img class="imgBigSale" src="{% static 'img/bottonHeadphone.png' %}">
+                 {% endif %}
+             {% endfor %}
             </div>
             <div style="width: 42%;">
                 <div style="    margin-top: 5%;
@@ -51,7 +51,9 @@
 
         </div>
         <div class="grid">
-            {% for product in products %}
+
+
+            {% for product in products_list %}
                 <a class="item" href="{% url 'productBlog:productDetail' product.id %}">
                     <div style="text-align: center">
                         {{ product.name }}
