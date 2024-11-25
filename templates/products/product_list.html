@@ -26,11 +26,11 @@
 
                 </div>
 
-             {% for product in products %}
-                 {% if product.category.name == "هدفون" %}
-                     <img class="imgBigSale" src="{% static 'img/bottonHeadphone.png' %}">
-                 {% endif %}
-             {% endfor %}
+                {% for product in products %}
+                    {% if product.category.name == "هدفون" %}
+                        <img class="imgBigSale" src="{% static 'img/bottonHeadphone.png' %}">
+                    {% endif %}
+                {% endfor %}
             </div>
             <div style="width: 42%;">
                 <div style="    margin-top: 5%;
@@ -53,7 +53,7 @@
         <div class="grid">
 
 
-            {% for product in products_list %}
+            {% for product in products %}
                 <a class="item" href="{% url 'productBlog:productDetail' product.id %}">
                     <div style="text-align: center">
                         {{ product.name }}
@@ -71,15 +71,8 @@
     <div class="content_categories">
         <div style="font-size: 2rem;">category</div>
         {% for category in categories %}
-            {% if forloop.first or category != previous_category %}
-                <div class="category-item">
-                    <a class="category" href="{% url 'productBlog:product_list' category=category %}">
-                        <div class="category-name">{{ category }}</div>
-                    </a>
-                </div>
-            {% endif %}
-            {% with category as previous_category %}
-            {% endwith %}
+            <a href="{{ category.get_absolut_url }}">  {{ category.name }}</a>
+
         {% endfor %}
     </div>
 </div>

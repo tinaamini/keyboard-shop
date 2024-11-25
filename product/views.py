@@ -9,18 +9,18 @@ from django.views import View
 
 # Create your views here
 
+class ProductsView(View):
+    def get(self, request, category_name=None, category_slug=None):
+        products = BaseProducts.objects.filter(is_activated=True)
+        # products_list = BaseProducts.objects.all()
+        categories = Category.objects.filter(is_sub=False)
+        # product_filter = BaseProducts.objects.filter(is_activated=True,slug=category_name)
 
-def category_products(request, category_name):
-    products = BaseProducts.objects.filter(category__name=category_name)
-    products_list = BaseProducts.objects.all()
-    return render(request, 'products/product_list.html', {'products': products,'products_list':products_list})
-
-
-# def product_list(request):
-#
-#     category = Category.objects.all()
-#     products = BaseProducts.objects.all()
-#     return render(request, 'products/product_list.html', {'products': products, 'category': category})
+        if category_slug:
+            category = Category.objects.get(slug=category_slug)
+            products = products.filter(category=category)
+        return render(request, 'products/product_list.html',
+                      {'products': products, 'categories': categories})
 
 
 def search(request):

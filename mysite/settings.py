@@ -36,12 +36,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+
+    #local apps
     'home',
     'product',
     "orders",
     "account",
-    'django_celery_beat',
 
+    #thirs_party apps
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [

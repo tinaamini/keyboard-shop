@@ -1,5 +1,6 @@
 from django.db import models
 import re
+from django.urls import reverse
 
 
 # Create your models here.
@@ -10,6 +11,8 @@ def add_space_between_farsi_english(text):
 
 
 class Category(models.Model):
+    sub_category=models.ForeignKey('self',on_delete=models.CASCADE,related_name='scategory',null=True)
+    is_sub=models.BooleanField(default=False)
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
 
@@ -21,13 +24,13 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_absolut_url(self):
-    #     return reversed('productBlog:product_list', args=self.slug)
+    def get_absolut_url(self):
+        return reverse('productBlog:category_filter', args=[self.slug])
 
 
 class BaseProducts(models.Model):
     name = models.CharField(max_length=50, verbose_name="نام")
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', null=True, blank=True)
+    category = models.ManyToManyField(Category, related_name='products')
     img = models.ImageField(upload_to="media/", null=True)
     description = models.TextField(max_length=300, verbose_name="توضیحات", null=True, blank=True)
     stock = models.PositiveIntegerField(default=0, verbose_name="موجودی")
