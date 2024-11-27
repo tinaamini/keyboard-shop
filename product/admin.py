@@ -3,7 +3,7 @@ from .models import BaseProducts,Attributes,Value,ProductImage,Category
 from django.utils.html import format_html
 # Register your models here.
 class ValueAdmin(admin.ModelAdmin):
-    list_display = ('product', 'attribute', 'value')
+    list_display = ('product', 'attribute', 'value',"colors")
     search_fields = ('value',)
     list_filter = ('product', 'attribute')
 

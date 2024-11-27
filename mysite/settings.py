@@ -37,14 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
-    #local apps
+    # local apps
     'home',
     'product',
     "orders",
     "account",
 
-    #thirs_party apps
+    # thirs_party apps
     'django_celery_beat',
+    'colorfield',
 ]
 
 MIDDLEWARE = [

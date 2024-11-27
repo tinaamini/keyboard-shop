@@ -5,6 +5,7 @@ from django.db.models import CharField, Q
 from .models import Value, ProductImage, Attributes
 from .colors import COLOR_DICT
 from django.views import View
+from orders.forms import CartAddForm
 
 
 # Create your views here
@@ -49,25 +50,25 @@ def productDetail(request, id):
     product = get_object_or_404(BaseProducts, id=id)
     values = Value.objects.filter(product=product)
     images = ProductImage.objects.filter(product=product)
+    # valuess = Value.objects.filter(product=product)
     # بازیابی ویژگی قیمت
     price_attribute = Attributes.objects.filter(title='قیمت').first()
     price_value = values.filter(attribute=price_attribute).first() if price_attribute else None
     price = price_value.value if price_value else 'N/A'
     # بازیابی رنگ‌ها برای فیلتر
-    color_attribute = Attributes.objects.filter(title='رنگ').first()
-    if color_attribute:
-        raw_colors = values.filter(attribute=color_attribute).values_list('value', flat=True).distinct()
-        colors = [COLOR_DICT.get(color, '#CCCCCC') for color in
-                  raw_colors]  # استفاده از رنگ پیش‌فرض اگر رنگی در دیکشنری نباشد
-    else:
-        colors = []
+    colors = Value.objects.filter(product=product, attribute__title='رنگ').values('colors')
+
+
+
+    form = CartAddForm()
 
     context = {
         'product': product,
         'values': values,
         'images': images,
         'price': price,
-        'colors': colors,
+        'form': form,
+        'colors':colors
 
     }
 

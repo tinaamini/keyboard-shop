@@ -1,6 +1,8 @@
 from django.db import models
 import re
 from django.urls import reverse
+from colorfield.fields import ColorField
+from colorfield.widgets import ColorWidget
 
 
 # Create your models here.
@@ -32,6 +34,7 @@ class BaseProducts(models.Model):
     name = models.CharField(max_length=50, verbose_name="نام")
     category = models.ManyToManyField(Category, related_name='products')
     img = models.ImageField(upload_to="media/", null=True)
+
     description = models.TextField(max_length=300, verbose_name="توضیحات", null=True, blank=True)
     stock = models.PositiveIntegerField(default=0, verbose_name="موجودی")
     date_created = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ثبت محصول", null=True, blank=True)
@@ -45,6 +48,8 @@ class BaseProducts(models.Model):
     def formatted_name(self):
         return add_space_between_farsi_english(self.name)
 
+
+
     class Meta:
         verbose_name = "محصول پایه"
         verbose_name_plural = 'محصولات پایه'
@@ -55,6 +60,7 @@ class Attributes(models.Model):
     deleted = models.BooleanField()
     is_activated = models.BooleanField()
     type = models.CharField(max_length=50)
+
 
     def __str__(self):
         return self.title
@@ -67,14 +73,19 @@ class Attributes(models.Model):
 class Value(models.Model):
     product = models.ForeignKey('BaseProducts', on_delete=models.SET_NULL, null=True, verbose_name='محصول')
     attribute = models.ForeignKey('Attributes', on_delete=models.SET_NULL, null=True, verbose_name='ویژگی')
-    value = models.CharField(max_length=200, verbose_name='مقدار')
+    value = models.CharField(max_length=200, verbose_name='مقدار', null=True, blank=True)
+    colors = ColorField(verbose_name='مقدار', null=True, blank=True)
+
+    def formfield(self, **kwargs):
+        kwargs['widget'] = ColorWidget(attrs={'style': 'width: 100px; height: 36px;'})
+        return super().formfield(**kwargs)
 
     class Meta:
         verbose_name = 'مقدار'
         verbose_name_plural = 'مقادیر'
 
     def __str__(self):
-        return self.value
+        return self.value or self.colors
 
 
 class ProductImage(models.Model):

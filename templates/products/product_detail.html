@@ -56,29 +56,46 @@
                 <div>تعداد</div>
                 <div>جمع خرید</div>
             </div>
-            <div class="content_buy">
-                <div class="container-color">
-                    <div class="content-color">
-                        <div class="color-first" id="color-swatch" style="background-color: {{ colors|first }};"
-                             title="{{ colors|first }}"></div>
+            <form action="" method="post">
+                {% csrf_token %}
 
-                        {% for color in colors %}
-                            <div class="color-swatch hidden" id="color-swatch" style="background-color: {{ color }};"
-                                 title="{{ color }}"></div>
-                        {% endfor %}
+
+                <div class="content_buy">
+                    <div class="container-color">
+                        <div class="content-color">
+                            {% for color in colors %}
+                                  {% if forloop.first %}
+                                <div class="color-first" id="color-swatch"
+                                     style="background-color: {{ color.colors}};"
+                                     title="{{ color.colors}}"></div>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% for color in colors %}
+
+                                <div class="color-swatch hidden" id="color-swatch"
+                                     style="background-color:{{ color.colors }}"
+                                     title=" {{ color.colors }}"></div>
+                            {% endfor %}
+                        </div>
+
+                        <img style="width: 38% " src="{% static 'svg/alt-arow-down.svg ' %}" class="more-colors-button"
+                             id="show-more-colors">
+                        <img style="width: 54% ;height: 34px" src="{% static 'svg/aly-arrow-up.svg' %}"
+                             class="hide-colors-button hidden" id="hide-more-colors">
                     </div>
 
-                    <img style="width: 38% " src="{% static 'svg/alt-arow-down.svg ' %}" class="more-colors-button" id="show-more-colors">
-                    <img style="width: 54% ;height: 34px" src="{% static 'svg/aly-arrow-up.svg' %}" class="hide-colors-button hidden" id="hide-more-colors">
+                    <div class="container-number">
+                        <div class="content-negative">-</div>
+                        <input type="number" class="quality" name="{{ form.quality.name }}"
+                               value="{{ form.quality.value }}">
+                        <div class="content-number">1</div>
+                        <div class="content-positive">+</div>
+                    </div>
+                    <div class="container-price" data-price="{{ price }}">{{ price|iran_currency }} تومان</div>
                 </div>
 
-                <div class="container-number">
-                    <div class="content-negative">-</div>
-                    <div class="content-number">1</div>
-                    <div class="content-positive">+</div>
-                </div>
-                <div class="container-price" data-price="{{ price }}">{{ price|iran_currency }} تومان</div>
-            </div>
+            </form>
         </div>
 
 

@@ -90,6 +90,11 @@ $('.content-positive').click(function () {
     $('.container-price').text(totalPrice.toLocaleString('fa-IR') + ' تومان')
 
 
+    const newvalue = parseInt($('.content-number').text());
+    $('.quality').val(newvalue);
+     console.log(  $('.quality').val(newvalue))
+
+
 })
 
 $('.content-negative').click(function () {
@@ -100,7 +105,13 @@ $('.content-negative').click(function () {
         $('.content-number').text(newValue);
     }
     var totalPrice = newValue * pricePerItem;
-    $('.container-price').text(totalPrice.toLocaleString('fa-IR') + ' تومان')
+    $('.container-price').text(totalPrice.toLocaleString('fa-IR') + ' تومان');
+
+
+    const newvalue = parseInt($('.content-number').text());
+    $('.quality').val(newvalue);
+    console.log(  $('.quality').val(newvalue))
+
 
 
 })
